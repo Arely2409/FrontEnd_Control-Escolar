@@ -15,6 +15,7 @@ export class AlumnosService {
     cuatrimestre: 0,
     promedio: 0
   }
+  update:boolean=false;
 
   constructor(private http:HttpClient) { }
   getAllStudents(){
@@ -26,6 +27,9 @@ export class AlumnosService {
 
   deleteStudent(matricula:String){
     return this.http.delete(this.URL_API+'deleteOne/'+matricula);
+  }
+  updateStudent(alumno:Alumno){
+    return this.http.put(this.URL_API+'updateOne/'+alumno.matricula,alumno);
   }
 
   
